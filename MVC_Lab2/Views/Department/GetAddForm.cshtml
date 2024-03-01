@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1> Add Departmnt  </h1>
+
+<form action="/department/GetFormData">
+    <div class="mb-3">
+        <label for="name" class="form-label">Dname</label>
+        <input type="Text" class="form-control" id="name" name="name">
+    </div>
+   
+
+    <div class="mb-3">
+        <label for="MGRStartDate" class="form-label">MGRStartDate</label>
+        <input type="datetime" class="form-control" id="MGRStartDate" name="MGRStartDate">
+    </div>
+   
+
+
+    <div class="mb-3 form-check">
+        <label class="form-check-label" for="manager">Manager</label>
+        <select name="MSSN" id="manager">
+            @foreach (Employee item in ViewBag.employees)
+            {
+                <option value="@item.SSN">@item.Fname</option>
+
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>

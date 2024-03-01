@@ -1,0 +1,110 @@
+﻿<html>
+
+<head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/main7.css">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="bg-dark p-3 ">
+        <div>
+        <ul class="m-1 ">
+                <li><a href="#" class="bg-success text-bg-light h-25 w-25">HOMEPAGO</a></li>
+                <li><a href="#" class="text-light">OUR CLIENTS</a></li>
+                <li><a href="/EmployeeProject/GetProjectsForEmployee" class="text-light">EmployeeProject</a></li>
+                <li><a href="/department/index" class="text-light"> DEPARTMENT</a></li>
+                <li><a href="/employee/index" class="text-light"> EMPLOYEE</a></li>
+                <li><a href="/project/index" class="text-light"> PROJECTS</a></li>
+                <li><a href="/worksfor/getall" class="text-light">WORKS_FOR</a></li>
+               <li><a href="/validation/index" class="text-light">VALIDATION</a></li>
+               <li><a href="#" class="text-light">CONTACT US</a></li>
+          
+        <li>
+                    <div class="text-success">
+                    @if (Context.Session.GetInt32("password") != null)
+                    {
+                        <span>@Context.Session.GetString("name")</span>
+                    }
+                    else
+                    {
+                        <a class="btn btn-outline-success" href="/Account/Login"> Login</a>
+                    }
+                </div>
+                </li>
+                <a class="btn btn-outline-danger" href="/Account/Logout"> LogOut</a>
+                </li>
+                <li>
+                   
+            </ul>
+        </div>
+          
+        
+       
+    </nav>
+    <div class="p-5">
+        @RenderBody()
+    </div>
+    <section class="about  bg-dark ">
+        <div class="container ">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <i class="fa-brands fa-facebook-f text-white  fs-1 py-5 "></i>
+                    <h3 class="text-light">Maecenas lectus sapien</h3>
+                    <hr class="m-3 hala">
+                    <P class="text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, aspernatur numquam? Porro aut laudantium mollitia obcaecati delectus quia, ducimus voluptatibus.</P>
+                </div>
+
+                <div class="col-md-3">
+                    <i class="fa-brands fa-twitter text-white  fs-1 py-5 "></i>
+                    <h3 class="text-light">Etiam posuere augue</h3>
+                    <hr class=" m-3 hala">
+                    <P class="text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, aspernatur numquam? Porro aut laudantium mollitia obcaecati delectus quia, ducimus voluptatibus.</P>
+                </div>
+
+                <div class="col-md-3">
+                    <i class="fa-brands fa-linkedin text-white  fs-1 py-5 "></i>
+                    <h3 class="text-light">Praesent scelerisque</h3>
+                    <hr class=" m-3 hala">
+                    <P class="text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, aspernatur numquam? Porro aut laudantium mollitia obcaecati delectus quia, ducimus voluptatibus.</P>
+                </div>
+
+                <div class="col-md-3">
+                    <i class="fa-brands fa-instagram text-white  fs-1 py-5 "></i>
+                    <h3 class="text-light">Fusce ultrices fringilla</h3>
+                    <hr class="m-3 hala">
+                    <P class="text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, aspernatur numquam? Porro aut laudantium mollitia obcaecati delectus quia, ducimus voluptatibus.</P>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="d-f justify-content-center text-center">
+                <h1 class="pt-5">Maecenas vitae orci vitae tellus feugiat eleifend</h1>
+                <h6 class="pb-5" id="textToChange">QUISQUE DICTUM INTEGER NISL RISUS, SAGITTIS CONVALLIS, RUTRUM ID, CONGUE, AND NIBH</h6>
+                <P>
+                    This is <span class="fw-bold">Breadth</span>, a free, fully standards-compliant CSS template designed by
+                    <a href="#" class="text-secondary"> TEMPLATED</a>. The photos in this template are from  <a href="#" class="text-secondary">Fotogrph</a>. This free template is released under the <a href="#" class="text-secondary"> Creative Commons</a> Attribution license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give us credit for it. Have fun :)
+                </P>
+                <button class="btn btn-success px-5 py-2 my-5">ETIAM POSUERE</button>
+
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-dark h-25 mt-5">
+        <div class="d-flex justify-content-center">
+            <P class="text-secondary pt-5">DESIGN BY: Hala Ahmed</P>
+        </div>
+
+    </footer>
+    <script src="/js/demo.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

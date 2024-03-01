@@ -1,0 +1,71 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+@model List<Employee>
+@{
+
+    SelectList empss = new SelectList(Model, "SSN", "Fname");
+}
+<form action="/EmployeeProject/EditHour" method="post">
+
+    <select onchange="getProjects()" name="eId" id="emps" asp-items="empss" class="form-control w-50 mb-3">
+        <option value="0"> Employees</option>
+    </select>
+    <select onchange="getHours()" name="pId" id="projs" class="form-control w-50 mb-3">
+        <option value="0"> Projects</option>
+    </select>
+
+    <input type="number" name="hour" id="hour" />
+
+   <button class="btn btn-black" type="submit" value="Edit" > Update Hours</button>
+
+    
+</form>
+
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
+        function getProjects() {
+            var empId = document.getElementById("emps").value;
+            var selec = document.getElementById("projs");
+            // document.getElementById("employeeId").value = empId;
+            selec.innerHTML = `<option value="0">Choose the project</option>`;
+
+            $.ajax({
+                url: "/EmployeeProject/ProjectsForEmployee/" + empId,
+                success: function (data) {
+                    for (var p of data) {
+                        selec.innerHTML += `<option value="${p.pnumber}">${p.pname}</option>`;
+                    }
+                }
+
+
+            });
+        }
+
+
+        function getHours() {
+            var hour = document.getElementById("hour");
+            var empId = document.getElementById("emps").value;
+            var index = document.getElementById("projs").value;
+
+            $.ajax({
+                url: "/EmployeeProject/ProjectsForEmployee/" + empId,
+                success: function (data) {
+                    // document.getElementById("projectId").value = data[index-1].pNumber;
+
+                    hour.value = data[(index - 1)].hours;
+                }
+
+
+            });
+        }
+
+    </script>
+}

@@ -1,0 +1,33 @@
+﻿@model Employee
+@*  @{
+    Layout = "ITILayout";
+
+} *@ 
+ @{
+    Layout = "_TempletLayout";
+
+} 
+@if (Model is null)
+{
+    <h5>Employee not valid</h5>
+}
+else
+{ 
+
+    <div class="card w-50 txt-center py-5 m-auto">
+        <div class="card-body  ">
+         
+            <h6 class="card-subtitle pt-2 mb-2 text-muted">@Model.Fname</h6>
+            <h6 class="card-subtitle mb-2 text-muted">@Model.Lname</h6>
+            <p class="card-text">@Model.Address</p>
+            <p class="card-text">@Model.Bdate</p>
+            <a href="/Employee/Index" class="card-link"> Go All Employees </a>
+        </div>
+    </div>
+}
+
+@* RenderSection *@
+@* @section SidebarTitle {
+
+    Employee Details
+} *@

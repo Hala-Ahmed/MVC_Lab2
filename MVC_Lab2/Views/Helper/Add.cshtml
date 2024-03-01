@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    SelectList list = new SelectList(ViewBag.employees ,"SSN","Fname");
+}
+@model Department
+<h1> Add Departmnt  </h1>
+@* action="/department/GetFormData"
+ *@<form action="/Helper/AddDB">
+    <div class="mb-3">
+        <label asp-for="Dname" class="form-label"></label>
+        <input  class="form-control" asp-for="Dname">
+    </div>
+
+
+    <div class="mb-3">
+        <label asp-for="MGRStartDate" class="form-label"></label>
+        <input  class="form-control" asp-for="MGRStartDate">
+    </div>
+
+
+
+    <div class="mb-3 form-check">
+        <label class="form-check-label" asp-for="MGRSSN">Manger</label>
+        <select asp-for="MGRSSN" class="form-control" asp-items="list">
+            @* @foreach (Employee item in ViewBag.employees)
+            {
+                <option value="@item.SSN">@item.Fname</option>
+
+            } *@
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>

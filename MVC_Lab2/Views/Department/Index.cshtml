@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+    @model List<Department>
+
+@{
+    int i = 0;
+}
+
+<a class="btn mp-2 btn-success" href="/department/getaddform">Add</a>
+ <a class="btn mp-2 btn-success" asp-action="Add" asp-controller="Helper" >Add With tag helper</a>
+ 
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">DName</th>
+            <th scope="col">Manger</th>
+            <th scope="col">MGRStartDate</th>
+           <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@(++i)</th>
+                <td>@item.Dname</td>
+                <td>@item.Manger?.Fname</td>
+                <td>@item.MGRStartDate</td>
+
+                
+                <td>
+                    <a href="/Department/Details/@item.Dno"><i class="fa-solid fa-circle-info"></i></a> |
+                    <a href="/Department/GetEditForm/@item.Dno">Edit</a> |
+                    <a  asp-action="Edit" asp-controller="Helper" asp-route-id="@item.Dno"> Edit with tag helper</a> |
+                    <a href="/Department/delete/@item.Dno">Delete</a> 
+               
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

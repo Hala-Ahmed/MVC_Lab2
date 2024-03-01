@@ -1,0 +1,49 @@
+﻿@*  @{
+    Layout = "ITILayout";
+    
+}  *@
+
+@{
+    Layout = "_TempletLayout";
+
+}
+
+<h1 class="text-center">All Employees</h1>
+
+<table class="table table-striped table-hover w-75 m-auto ">
+    <thead>
+        <tr>
+            <th scope="col">FName</th>
+            <th scope="col">LName</th>
+            <th scope="col">Address</th>
+            <th scope="col">Salary</th>
+            @* <th scope="col">Bdate</th> 
+            <th scope="col">Sex</th>*@
+             <th>Details </th>
+
+
+        </tr>
+    </thead> 
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Fname</td>
+                <td>@item.Lname</td>
+                <td>@item.Address</td>
+                <td>@item.Salary</td>
+             @*    <td>@item.Bdate</td>
+                <td>@item.Sex</td> *@
+                <td><a href="/employee/emp?ssn=@item.SSN"><i class="fa-solid fa-circle-info"></i></a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+@* RenderSection *@
+@* @section SidebarTitle {
+
+   All Employees
+} *@ 
